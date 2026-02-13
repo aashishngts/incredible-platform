@@ -39,19 +39,19 @@ export default function Contact() {
               {
                 icon: FaEnvelope,
                 title: "Email",
-                value: "contact@incredible.com",
+                value: "platformincredible@gmail.com",
                 color: "from-blue-500 to-cyan-500"
               },
               {
                 icon: FaPhoneAlt,
                 title: "Phone",
-                value: "+91 9876543210",
+                value: "+91 9977160008",
                 color: "from-purple-500 to-pink-500"
               },
               {
                 icon: FaMapMarkerAlt,
                 title: "Address",
-                value: "Indore, India",
+                value: "55-A, Avantika Nagar, Indore, MP 452006",
                 color: "from-green-500 to-emerald-500"
               }
             ].map((item, i) => (
