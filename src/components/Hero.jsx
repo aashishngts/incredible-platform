@@ -50,7 +50,7 @@ export default function HeroAnimatedSparkle() {
   return (
     <section
       id="home"
-      className="relative min-h-screen pt-12 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-white"
+      className="relative min-h-screen pt-6 sm:pt-10 lg:pt-12 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-white"
     >
       {/* Animated Background - Mouse Tracking */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10">
