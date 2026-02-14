@@ -10,6 +10,13 @@ export default {
         primary: '#6366f1',
         secondary: '#8b5cf6',
       },
+
+      /* 👇 FONT ADDED HERE */
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],   // default font
+        heading: ['Nunito', 'sans-serif'], // for headings
+      },
+
       animation: {
         fadeIn: 'fadeIn 0.5s ease-in-out',
         slideUp: 'slideUp 0.5s ease-out',

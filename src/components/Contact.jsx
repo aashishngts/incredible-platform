@@ -4,14 +4,14 @@ import {
   FaEnvelope,
   FaPhoneAlt,
   FaMapMarkerAlt,
-  FaPaperPlane
+  FaPaperPlane,
 } from "react-icons/fa";
 
 export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white"
+      className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white font-sans"
     >
       <div className="max-w-7xl mx-auto">
 
@@ -19,12 +19,16 @@ export default function Contact() {
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full mb-6 border border-indigo-200">
             <Zap size={16} />
-            <span className="text-xs font-bold uppercase tracking-widest">Contact Us</span>
+            <span className="text-xs font-semibold uppercase tracking-widest">
+              Contact Us
+            </span>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+
+          <h2 className="font-heading text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4">
             Let's Connect
           </h2>
-          <p className="text-base text-gray-600">
+
+          <p className="text-base text-gray-600 font-medium">
             Have questions? We'd love to hear from you.
           </p>
         </div>
@@ -32,7 +36,7 @@ export default function Contact() {
         {/* Main Grid */}
         <div className="grid lg:grid-cols-2 gap-16 items-start">
 
-          {/* LEFT SIDE - CONTACT INFO */}
+          {/* LEFT SIDE */}
           <div className="space-y-10">
 
             {[
@@ -40,20 +44,20 @@ export default function Contact() {
                 icon: FaEnvelope,
                 title: "Email",
                 value: "platformincredible@gmail.com",
-                color: "from-blue-500 to-cyan-500"
+                color: "from-blue-500 to-cyan-500",
               },
               {
                 icon: FaPhoneAlt,
                 title: "Phone",
                 value: "+91 9977160008",
-                color: "from-purple-500 to-pink-500"
+                color: "from-purple-500 to-pink-500",
               },
               {
                 icon: FaMapMarkerAlt,
                 title: "Address",
                 value: "55-A, Avantika Nagar, Indore, MP 452006",
-                color: "from-green-500 to-emerald-500"
-              }
+                color: "from-green-500 to-emerald-500",
+              },
             ].map((item, i) => (
               <div
                 key={i}
@@ -66,17 +70,16 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <h3 className="font-semibold text-gray-900 text-lg">
+                  <h3 className="font-heading font-semibold text-gray-900 text-lg">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600 group-hover:text-indigo-600 transition">
+                  <p className="text-gray-600 font-medium group-hover:text-indigo-600 transition">
                     {item.value}
                   </p>
                 </div>
               </div>
             ))}
 
-            
           </div>
 
           {/* RIGHT SIDE - FORM */}
@@ -89,24 +92,25 @@ export default function Contact() {
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition text-sm"
+                  className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition text-sm font-medium"
                 />
+
                 <input
                   type="email"
                   placeholder="Your Email"
-                  className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition text-sm"
+                  className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition text-sm font-medium"
                 />
               </div>
 
               <textarea
                 rows="5"
                 placeholder="Your Message"
-                className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition resize-none text-sm"
+                className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition resize-none text-sm font-medium"
               ></textarea>
 
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold shadow-md hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 group"
+                className="w-full px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 group"
               >
                 Send Message
                 <FaPaperPlane
