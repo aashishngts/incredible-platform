@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Target, Heart, Zap } from "lucide-react";
 import {
+  Target,
+  Heart,
+  Zap,
   Rocket,
   Globe,
   Star,
@@ -55,26 +57,26 @@ export default function AboutTimeline() {
   return (
     <section
       id="about"
-      className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-blue-50/30 to-white font-sans"
+      className="py-12 sm:py-12 lg:py-18 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-blue-50/30 to-white"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full mb-6 border border-indigo-200">
-            <Zap size={16} />
-            <span className="text-xs font-semibold uppercase tracking-widest">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full mb-4 border border-indigo-200">
+            <Zap size={14} />
+            <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest">
               About Us
             </span>
           </div>
 
-          <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 leading-snug">
             Empowering Digital{" "}
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               Creators
             </span>
           </h2>
 
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto font-medium leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-2xl mx-auto font-medium leading-relaxed">
             A professionally managed platform dedicated to nurturing creativity,
             recognizing talent, and fostering innovation through digital
             transformation.
@@ -82,26 +84,50 @@ export default function AboutTimeline() {
         </div>
 
         {/* Timeline */}
-        <div className="mb-24">
+        <div className="mb-16 sm:mb-20">
+          {/* Mobile Timeline (Vertical) */}
+          <div className="md:hidden space-y-6">
+            {steps.map((step) => (
+              <button
+                key={step.id}
+                onClick={() => setActiveStep(step.id)}
+                className={`w-full p-5 rounded-2xl border transition-all duration-300 text-left ${
+                  activeStep === step.id
+                    ? "border-indigo-400 shadow-lg"
+                    : "border-gray-200"
+                }`}
+              >
+                <div className="flex items-center gap-4">
+                  <div
+                    className={`w-12 h-12 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center`}
+                  >
+                    <step.icon className="text-white" size={22} />
+                  </div>
+                  <p className="font-semibold text-gray-800">{step.title}</p>
+                </div>
+              </button>
+            ))}
+          </div>
+
+          {/* Desktop Timeline */}
           <div className="hidden md:flex items-center justify-between gap-8 mb-12">
             {steps.map((step, idx) => (
               <React.Fragment key={step.id}>
                 <button
                   onClick={() => setActiveStep(step.id)}
-                  className={`flex-1 relative group transition-all duration-300 ${
+                  className={`flex-1 relative transition-all duration-300 ${
                     activeStep === step.id ? "scale-110" : "hover:scale-105"
                   }`}
                 >
                   <div
                     className={`w-16 h-16 rounded-full mx-auto mb-4 bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg ${
                       activeStep === step.id
-                        ? "ring-4 ring-offset-4 ring-indigo-300 scale-125"
-                        : "group-hover:scale-110"
+                        ? "ring-4 ring-offset-4 ring-indigo-300"
+                        : ""
                     }`}
                   >
                     <step.icon className="text-white" size={28} />
                   </div>
-
                   <p
                     className={`text-center font-semibold ${
                       activeStep === step.id
@@ -120,28 +146,28 @@ export default function AboutTimeline() {
             ))}
           </div>
 
-          {/* Active Step */}
+          {/* Active Step Card */}
           {steps.map(
             (step) =>
               activeStep === step.id && (
                 <div
                   key={step.id}
-                  className={`bg-gradient-to-br ${step.bgColor} rounded-3xl p-8 sm:p-12 border-2 border-gray-200 shadow-2xl`}
+                  className={`bg-gradient-to-br ${step.bgColor} rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 border border-gray-200 shadow-xl`}
                 >
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
                     <div>
                       <h3
-                        className={`font-heading text-3xl sm:text-4xl font-extrabold mb-4 bg-gradient-to-r ${step.color} bg-clip-text text-transparent`}
+                        className={`font-heading text-2xl sm:text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r ${step.color} bg-clip-text text-transparent`}
                       >
                         {step.title}
                       </h3>
 
-                      <p className="text-lg text-gray-700 leading-relaxed font-medium mb-6">
+                      <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-6">
                         {step.desc}
                       </p>
 
                       <button
-                        className={`px-8 py-3 bg-gradient-to-r ${step.color} text-white rounded-full font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300`}
+                        className={`px-6 sm:px-8 py-3 bg-gradient-to-r ${step.color} text-white rounded-full font-semibold shadow-md hover:scale-105 transition`}
                       >
                         Learn More
                       </button>
@@ -149,9 +175,9 @@ export default function AboutTimeline() {
 
                     <div className="hidden md:flex justify-center">
                       <div
-                        className={`w-36 h-36 rounded-3xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300`}
+                        className={`w-28 sm:w-32 h-28 sm:h-32 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-xl`}
                       >
-                        <step.icon className="text-white" size={60} />
+                        <step.icon className="text-white" size={50} />
                       </div>
                     </div>
                   </div>
@@ -160,50 +186,40 @@ export default function AboutTimeline() {
           )}
         </div>
 
-        {/* Why Choose Section */}
-        <div className="relative bg-white rounded-3xl p-8 sm:p-12 border-2 border-gray-200 shadow-xl">
-          <div className="text-center mb-12">
-            <h3 className="font-heading text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2">
+        {/* Features */}
+        <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-14 border border-gray-200 shadow-lg">
+          {/* Heading */}
+          <div className="text-center mb-10 sm:mb-14">
+            <h3 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
               Why Choose Incredible Platform?
             </h3>
-            <p className="text-gray-600 font-medium">
+            <p className="text-sm sm:text-base text-gray-600 max-w-xl mx-auto">
               Everything you need to succeed
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6">
             {features.map((feature, i) => (
               <div
                 key={i}
-                className="group p-6 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 hover:border-indigo-300 hover:shadow-lg transition-all duration-300"
+                className="group p-5 sm:p-6 rounded-xl bg-gray-50 border border-gray-200 hover:border-indigo-300 hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center min-h-[140px]"
               >
                 <div className="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center mb-4 group-hover:bg-indigo-100 transition">
                   <feature.icon size={22} className="text-indigo-600" />
                 </div>
 
-                <p className="font-semibold text-gray-900 text-sm leading-tight group-hover:text-indigo-600 transition-colors duration-300">
+                <p className="font-semibold text-sm sm:text-base text-gray-900 leading-snug group-hover:text-indigo-600 transition-colors duration-300">
                   {feature.text}
                 </p>
               </div>
             ))}
           </div>
 
+          {/* CTA */}
           <div className="mt-12 text-center">
-            <button className="px-10 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center gap-2 group">
+            <button className="px-8 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-sm sm:text-base">
               Start Your Journey
-              <svg
-                className="w-5 h-5 group-hover:translate-x-1 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
-              </svg>
             </button>
           </div>
         </div>

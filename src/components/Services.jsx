@@ -7,7 +7,6 @@ import {
   TrendingUp,
   Rocket,
   ArrowRight,
-  CheckCircle,
   Zap,
 } from "lucide-react";
 
@@ -26,7 +25,6 @@ export default function Services() {
         "Growth Strategies",
         "Community Building",
       ],
-      benefits: ["Real-time insights", "24/7 support", "Global reach"],
     },
     {
       icon: Trophy,
@@ -39,7 +37,6 @@ export default function Services() {
         "Networking Events",
         "Mentorship",
       ],
-      benefits: ["Win rewards", "Build portfolio", "Industry recognition"],
     },
     {
       icon: Lightbulb,
@@ -52,7 +49,6 @@ export default function Services() {
         "Expert Mentors",
         "Funding Support",
       ],
-      benefits: ["Turn ideas real", "Secure funding", "Expert guidance"],
     },
     {
       icon: Award,
@@ -65,7 +61,6 @@ export default function Services() {
         "Portfolio Showcase",
         "Public Recognition",
       ],
-      benefits: ["Boost credibility", "Career growth", "Visibility"],
     },
     {
       icon: TrendingUp,
@@ -78,7 +73,6 @@ export default function Services() {
         "Social Marketing",
         "SEO Optimization",
       ],
-      benefits: ["Professional image", "Increased reach", "Better engagement"],
     },
     {
       icon: Rocket,
@@ -91,7 +85,6 @@ export default function Services() {
         "Resource Access",
         "Legal Support",
       ],
-      benefits: ["Accelerate growth", "Strategic partners", "Expert advice"],
     },
   ];
 
@@ -101,24 +94,24 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white to-gray-50 overflow-hidden font-sans"
+      className="py-12 sm:py-12 lg:py-18 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white to-gray-50"
     >
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full mb-6 border border-indigo-200">
-            <Zap size={16} />
-            <span className="text-xs font-semibold uppercase tracking-widest">
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full mb-4 border border-indigo-200">
+            <Zap size={14} />
+            <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest">
               Services
             </span>
           </div>
 
-          <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-gray-900 mb-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
             What We Offer
           </h2>
 
-          <p className="text-base text-gray-600 max-w-2xl mx-auto font-medium">
+          <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto font-medium">
             Comprehensive solutions to help you succeed in the digital world
           </p>
         </div>
@@ -132,101 +125,94 @@ export default function Services() {
               const isActive = i === activeService;
 
               return (
-                <button
-                  key={i}
-                  onClick={() => setActiveService(i)}
-                  className={`w-full text-left p-4 rounded-xl transition-all duration-300 group ${
-                    isActive
-                      ? `bg-gradient-to-r ${service.color} text-white shadow-lg`
-                      : "bg-white border border-gray-200 text-gray-900 hover:border-indigo-300 hover:shadow-md"
-                  }`}
-                >
-                  <div className="flex items-start gap-4">
-                    <div
-                      className={`w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                        isActive
-                          ? "bg-white/30 backdrop-blur"
-                          : `bg-gradient-to-br ${service.color}`
-                      }`}
-                    >
-                      <ServiceIcon size={24} className="text-white" />
+                <div key={i}>
+                  <button
+                    onClick={() => setActiveService(i)}
+                    className={`w-full text-left p-4 rounded-xl transition-all duration-300 ${
+                      isActive
+                        ? `bg-gradient-to-r ${service.color} text-white shadow-lg`
+                        : "bg-white border border-gray-200 text-gray-900 hover:border-indigo-300 hover:shadow-md"
+                    }`}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div
+                        className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center ${
+                          isActive
+                            ? "bg-white/30"
+                            : `bg-gradient-to-br ${service.color}`
+                        }`}
+                      >
+                        <ServiceIcon size={20} className="text-white" />
+                      </div>
+
+                      <div>
+                        <h3 className="font-semibold text-sm sm:text-base">
+                          {service.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm mt-1 opacity-90">
+                          {service.desc}
+                        </p>
+                      </div>
                     </div>
+                  </button>
 
-                    <div className="flex-1">
-                      <h3
-                        className={`font-heading font-semibold text-sm sm:text-base ${
-                          isActive ? "text-white" : "text-gray-900"
-                        }`}
-                      >
-                        {service.title}
-                      </h3>
-
-                      <p
-                        className={`text-xs sm:text-sm mt-1 font-medium ${
-                          isActive ? "text-white/90" : "text-gray-600"
-                        }`}
-                      >
-                        {service.desc}
+                  {/* Mobile Expand Panel */}
+                  {isActive && (
+                    <div className="lg:hidden mt-3 p-5 rounded-xl bg-gray-50 border border-gray-200">
+                      <p className="font-semibold mb-3 text-sm">
+                        Key Features
                       </p>
+                      <ul className="space-y-2 text-sm text-gray-600">
+                        {service.features.map((f, idx) => (
+                          <li key={idx}>• {f}</li>
+                        ))}
+                      </ul>
+
+                      <button className="mt-4 w-full px-5 py-2 bg-indigo-600 text-white rounded-lg text-sm font-semibold">
+                        Get Started
+                      </button>
                     </div>
-                  </div>
-                </button>
+                  )}
+                </div>
               );
             })}
           </div>
 
-          {/* Right Panel */}
+          {/* Desktop Panel */}
           <div className="hidden lg:block">
             <div
-              className={`relative bg-gradient-to-br ${current.color} rounded-2xl p-8 text-white h-full min-h-96 overflow-hidden`}
+              className={`bg-gradient-to-br ${current.color} rounded-2xl p-8 text-white h-full`}
             >
-              <div className="relative z-10">
-
-                <div className="w-16 h-16 rounded-xl bg-white/20 backdrop-blur-xl flex items-center justify-center mb-6">
-                  <CurrentIcon size={32} className="text-white" />
-                </div>
-
-                <h3 className="font-heading text-3xl font-extrabold mb-3">
-                  {current.title}
-                </h3>
-
-                <p className="text-white/90 mb-8 leading-relaxed font-medium">
-                  {current.desc}
-                </p>
-
-                {/* Features */}
-                <div className="mb-8">
-                  <p className="text-sm font-semibold uppercase tracking-wide mb-4 text-white/80">
-                    Key Features
-                  </p>
-
-                  <div className="space-y-2">
-                    {current.features.map((feature, i) => (
-                      <div key={i} className="flex items-center gap-3 text-sm font-medium">
-                        <div className="w-1.5 h-1.5 rounded-full bg-white/60"></div>
-                        <span>{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* CTA */}
-                <button className="mt-8 w-full px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl">
-                  Get Started
-                  <ArrowRight
-                    size={18}
-                    className="group-hover:translate-x-1 transition-transform"
-                  />
-                </button>
-
+              <div className="w-16 h-16 rounded-xl bg-white/20 flex items-center justify-center mb-6">
+                <CurrentIcon size={30} />
               </div>
+
+              <h3 className="font-heading text-2xl xl:text-3xl font-extrabold mb-4">
+                {current.title}
+              </h3>
+
+              <p className="text-white/90 mb-6">
+                {current.desc}
+              </p>
+
+              <div className="space-y-2 text-sm">
+                {current.features.map((feature, i) => (
+                  <div key={i}>• {feature}</div>
+                ))}
+              </div>
+
+              <button className="mt-8 w-full px-6 py-3 bg-white text-gray-900 rounded-lg font-semibold flex items-center justify-center gap-2">
+                Get Started
+                <ArrowRight size={16} />
+              </button>
             </div>
           </div>
+
         </div>
 
-        {/* Service Count */}
-        <div className="text-center mt-12">
-          <p className="text-sm text-gray-600 font-medium">
+        {/* Count */}
+        <div className="text-center mt-10">
+          <p className="text-xs sm:text-sm text-gray-600">
             Service{" "}
             <span className="text-indigo-600 font-semibold">
               {activeService + 1}

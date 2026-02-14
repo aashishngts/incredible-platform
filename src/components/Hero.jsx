@@ -50,7 +50,7 @@ export default function HeroAnimatedSparkle() {
   return (
     <section
       id="home"
-      className="relative min-h-screen pt-20 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-white"
+      className="relative min-h-screen pt-12 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-white"
     >
       {/* Animated Background - Mouse Tracking */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10">
@@ -106,7 +106,7 @@ export default function HeroAnimatedSparkle() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[calc(100vh-120px)] flex items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[calc(100vh-120px)]">
           {/* Left Content */}
           <div className="space-y-8">
             {/* Badge */}
@@ -125,15 +125,15 @@ export default function HeroAnimatedSparkle() {
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-6xl sm:text-4xl lg:text-6xl font-black leading-tight text-gray-900">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-gray-900">
               Discover Your
-              <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-pulse">
+              <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 Creative Potential
               </span>
             </h1>
 
             {/* Description */}
-            <p className="text-xl text-gray-700 leading-relaxed max-w-lg font-semibold">
+            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed max-w-lg font-semibold">
               Join a thriving community of creators, innovators, and
               changemakers. Compete in exciting events and turn your ideas into
               reality with our comprehensive platform.
@@ -166,7 +166,7 @@ export default function HeroAnimatedSparkle() {
             </div>
 
             {/* Stats */}
-            <div className="flex items-center gap-8 pt-2">
+            <div className="flex flex-wrap justify-center lg:justify-start items-center gap-6 sm:gap-8 pt-4">
               {[
                 { number: "10K+", label: "Members", icon: Users },
                 { number: "500+", label: "Events", icon: Target },
